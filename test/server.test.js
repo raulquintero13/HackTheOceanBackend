@@ -8,6 +8,5 @@ describe("Server test suite", () => {
         expect(response.statusCode).toBe(200);
         expect.assertions(2);
         handler();
-    });
-    
+    }); 
 });

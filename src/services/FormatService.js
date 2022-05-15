@@ -1,7 +1,4 @@
-
-
 class FormatService{
-
     static toApiResponse(result){
         let success =true;
         let code = 0;
@@ -25,8 +22,6 @@ class FormatService{
         };
         return response;
     }
-
-  
 }
 
 

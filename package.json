@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "server": "node ./src/server.js",
     "test": "node ./node_modules/.bin/jest",
     "start": "node ./src/server.js",
     "linter": "node ./node_modules/eslint/bin/eslint.js .",
