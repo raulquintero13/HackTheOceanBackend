@@ -10,7 +10,7 @@ datasource db {
 model Biologo {
   id           Int           @id @default(autoincrement())
   nombre       String        @db.VarChar(128)
-  organizacion String        @db.VarChar(128)
+  organizacion String        @db.VarChar(255)
   especialidad String        @db.VarChar(128)
   pais         String        @db.VarChar(128)
   dateCreated  DateTime      @default(now())
@@ -21,9 +21,9 @@ model Biologo {
 
 model Especie {
   id               Int           @id @default(autoincrement())
-  especie          String        @db.VarChar(128)
-  nombreCientifico String        @db.VarChar(128)
-  familia          String        @db.VarChar(128)
+  especie          String        @db.VarChar(255)
+  nombreCientifico String        @db.VarChar(255)
+  familia          String        @db.VarChar(255)
   biologoId        Int
   dateCreated      DateTime      @default(now())
   lastUpdated      DateTime      @updatedAt
@@ -33,8 +33,8 @@ model Especie {
 
 model Ubicaciones {
   id          Int      @id @default(autoincrement())
-  coordenadas Float    @default(0.000)
-  ph          Float    @default(0.000)
+  coordenadas String   @db.VarChar(128)
+  ph          String   @db.VarChar(128)
   especieId   Int
   biologoId   Int
   dateCreated DateTime @default(now())

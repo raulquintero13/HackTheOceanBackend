@@ -1,45 +1,47 @@
-const EspecieModel = require("../models/EspecieModel");
+const UbicacionModel = require("../models/UbicacionModel");
 const FormatService = require("../services/FormatService");
 
-class EspecieController{
+class UbicacionController{
 
     static getList(){
-        return EspecieModel.getAll().then(
+        return UbicacionModel.getAll().then(
             result => {
                 return FormatService.toApiResponse(result);
             });
     }
 
     static getById(id){
-        return EspecieModel.getById(id).then(
+        return UbicacionModel.getById(id).then(
             result => {
                 return FormatService.toApiResponse(result);
             });
     }
 
     static create(data){
-        const especie = {
-            especie: data.especie,
-            nombreCientifico: data.nombreCientifico,
-            familia: data.familia,
+        const ubicacion = {
+            coordenadas: data.coordenadas,
+            ph: data.ph,
+            especieId: data.especieId,
             biologoId: data.biologoId,
         };
-        return EspecieModel.create(especie).then(
+        return UbicacionModel.create(ubicacion).then(
             result => {
                 return FormatService.toApiResponse(result);
             }
         );
     }
+    
+
 
     static update(id,data){
-        const especie = {
+        const ubicacion = {
             id: parseInt(id),
-            especie: data.especie,
-            nombreCientifico: data.nombreCientifico,
-            familia: data.familia,
-            biologoId: data.biologoId,
+            coordenadas: data.coordenadas,
+            ph: data.ph,
+            especieId: data.especieid,
+            biologoId: data.biologoid,
         };
-        return EspecieModel.update(especie).then(
+        return UbicacionModel.update(ubicacion).then(
             result => {
                 return FormatService.toApiResponse(result);
             }
@@ -48,7 +50,7 @@ class EspecieController{
     }
 
     static delete(id){
-        return EspecieModel.delete(id).then(
+        return UbicacionModel.delete(id).then(
             result => {
                 return FormatService.toApiResponse(result);
             }
@@ -57,4 +59,4 @@ class EspecieController{
 
 }
 
-module.exports = EspecieController;
+module.exports = UbicacionController;
