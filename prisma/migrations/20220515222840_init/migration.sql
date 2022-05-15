@@ -37,6 +37,15 @@ CREATE TABLE "Ubicaciones" (
     CONSTRAINT "Ubicaciones_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "Usuarios" (
+    "id" SERIAL NOT NULL,
+    "biologoId" INTEGER NOT NULL,
+    "password" VARCHAR(128) NOT NULL,
+
+    CONSTRAINT "Usuarios_pkey" PRIMARY KEY ("id")
+);
+
 -- AddForeignKey
 ALTER TABLE "Especie" ADD CONSTRAINT "Especie_biologoId_fkey" FOREIGN KEY ("biologoId") REFERENCES "Biologo"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
 
@@ -45,3 +54,6 @@ ALTER TABLE "Ubicaciones" ADD CONSTRAINT "Ubicaciones_biologoId_fkey" FOREIGN KE
 
 -- AddForeignKey
 ALTER TABLE "Ubicaciones" ADD CONSTRAINT "Ubicaciones_especieId_fkey" FOREIGN KEY ("especieId") REFERENCES "Especie"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Usuarios" ADD CONSTRAINT "Usuarios_biologoId_fkey" FOREIGN KEY ("biologoId") REFERENCES "Biologo"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

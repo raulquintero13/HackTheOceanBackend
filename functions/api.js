@@ -7,6 +7,7 @@ const router = express.Router();
 const EspecieController = require("../src/controllers/EspecieController");
 const BiologoController = require("../src/controllers/BiologoController");
 const UbicacionController = require("../src/controllers/UbicacionController");
+const UsuarioController = require("../src/controllers/UsuarioController");
 
 router.get("/", (req, res) => {
     res.json({message: "alive"});
@@ -30,6 +31,8 @@ router.post("/ubicaciones", async (req, res) => {res.json(await (UbicacionContro
 router.put("/ubicaciones/:id", async (req, res) => {res.json(await (UbicacionController.update(req.params.id, req.body)));});
 router.delete("/ubicaciones/:id", async (req, res) => {res.json(await (UbicacionController.delete(req.params.id)));});
 
+router.get("/usuarios/:id", async (req, res) => {res.json(await (UsuarioController.getById(req.params.id)));});
+router.post("/usuarios", async (req, res) => {res.json(await (UsuarioController.create(req.body)));});
 
 app.use(bodyParser.json());
 app.use('/.netlify/functions/api', router);  // path must route to lambda

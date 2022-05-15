@@ -17,6 +17,7 @@ model Biologo {
   lastUpdated  DateTime      @updatedAt
   Especie      Especie[]
   Ubicaciones  Ubicaciones[]
+  Usuarios     Usuarios[]
 }
 
 model Especie {
@@ -41,4 +42,11 @@ model Ubicaciones {
   lastUpdated DateTime @updatedAt
   biologo     Biologo  @relation(fields: [biologoId], references: [id])
   especie     Especie  @relation(fields: [especieId], references: [id])
+}
+
+model Usuarios {
+  id        Int     @id @default(autoincrement())
+  biologo   Biologo @relation(fields: [biologoId], references: [id])
+  biologoId Int
+  password  String  @db.VarChar(128)
 }
