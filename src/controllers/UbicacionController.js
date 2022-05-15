@@ -24,14 +24,21 @@ class UbicacionController{
             especieId: data.especieId,
             biologoId: data.biologoId,
         };
+<<<<<<< HEAD
         console.log(ubicacion)
+=======
+        console.log(data)
+>>>>>>> ab20749a6b52f94f120fde98dcc2d0644a34d2a1
         return UbicacionModel.create(ubicacion).then(
             result => {
                 return FormatService.toApiResponse(result);
             }
         );
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> ab20749a6b52f94f120fde98dcc2d0644a34d2a1
 
 
     static update(id,data){
@@ -39,9 +46,17 @@ class UbicacionController{
             id: parseInt(id),
             coordenadas: data.coordenadas,
             ph: data.ph,
+<<<<<<< HEAD
             especieId: data.especieid,
             biologoId: data.biologoid,
         };
+=======
+            biologoId: data.biologoId,
+            especieId: data.especieId,
+        };
+        console.log(id)
+        console.log(data)
+>>>>>>> ab20749a6b52f94f120fde98dcc2d0644a34d2a1
         return UbicacionModel.update(ubicacion).then(
             result => {
                 return FormatService.toApiResponse(result);

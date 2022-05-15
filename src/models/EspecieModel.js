@@ -24,8 +24,9 @@ class EspecieModel{
     }
 
     static async create(especie){
+        console.log(especie)
         try{
-            return await prisma.Especie.create({ data: especie });
+            return await prisma.especie.create({ data: especie });
         } catch( err ) {
             return err;
         }

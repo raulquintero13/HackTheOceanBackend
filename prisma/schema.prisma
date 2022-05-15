@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -13,7 +10,7 @@ datasource db {
 model Biologo {
   id           Int           @id @default(autoincrement())
   nombre       String        @db.VarChar(128)
-  organizacion String        @db.VarChar(128)
+  organizacion String        @db.VarChar(255)
   especialidad String        @db.VarChar(128)
   pais         String        @db.VarChar(128)
   dateCreated  DateTime      @default(now())
@@ -25,26 +22,33 @@ model Biologo {
 
 model Especie {
   id               Int           @id @default(autoincrement())
-  especie          String        @db.VarChar(128)
-  nombreCientifico String        @db.VarChar(128)
-  familia          String        @db.VarChar(128)
-  biologo          Biologo       @relation(fields: [biologoId], references: [id])
+  especie          String        @db.VarChar(255)
+  nombreCientifico String        @db.VarChar(255)
+  familia          String        @db.VarChar(255)
   biologoId        Int
   dateCreated      DateTime      @default(now())
   lastUpdated      DateTime      @updatedAt
+  biologo          Biologo       @relation(fields: [biologoId], references: [id])
   Ubicaciones      Ubicaciones[]
 }
 
 model Ubicaciones {
   id          Int      @id @default(autoincrement())
-  coordenadas Float    @default(0.000)
-  ph          Float    @default(0.000)
-  especie     Especie  @relation(fields: [especieId], references: [id])
+  coordenadas String   @db.VarChar(128)
+  ph          String   @db.VarChar(128)
   especieId   Int
-  biologo     Biologo  @relation(fields: [biologoId], references: [id])
   biologoId   Int
   dateCreated DateTime @default(now())
   lastUpdated DateTime @updatedAt
+  biologo     Biologo  @relation(fields: [biologoId], references: [id])
+  especie     Especie  @relation(fields: [especieId], references: [id])
+}
+
+model Usuarios {
+  id        Int     @id @default(autoincrement())
+  biologo   Biologo @relation(fields: [biologoId], references: [id])
+  biologoId Int
+  password  String  @db.VarChar(128)
 }
 
 model Usuarios{

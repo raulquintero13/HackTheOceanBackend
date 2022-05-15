@@ -19,10 +19,10 @@ class EspecieController{
 
     static create(data){
         const especie = {
-            especie: data.name,
-            nombreCientifico: data.username,
-            familia: data.mainStack,
-            biologoid: data.currentEnrollment,
+            especie: data.especie,
+            nombreCientifico: data.nombreCientifico,
+            familia: data.familia,
+            biologoId: data.biologoId,
         };
         return EspecieModel.create(especie).then(
             result => {
@@ -37,7 +37,7 @@ class EspecieController{
             especie: data.especie,
             nombreCientifico: data.nombreCientifico,
             familia: data.familia,
-            biologoid: data.biologoid,
+            biologoId: data.biologoId,
         };
         return EspecieModel.update(especie).then(
             result => {

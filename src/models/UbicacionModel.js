@@ -24,16 +24,28 @@ class UbicacionModel{
     }
 
     static async create(ubicacion){
+<<<<<<< HEAD
         try{
             return await prisma.Ubicaciones.create({ data: ubicacion });
+=======
+        console.log(ubicacion)
+        try{
+            return await prisma.ubicaciones.create({ data: ubicacion });
+>>>>>>> ab20749a6b52f94f120fde98dcc2d0644a34d2a1
         } catch( err ) {
             return err;
         }
     }
 
     static async update(ubicacion){
+<<<<<<< HEAD
         try{
             return await prisma.Ubicaciones.update({
+=======
+        console.log(ubicacion)
+        try{
+            return await prisma.ubicaciones.update({
+>>>>>>> ab20749a6b52f94f120fde98dcc2d0644a34d2a1
                 where: { id: ubicacion.id },
                 data: ubicacion,
             });
