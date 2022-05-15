@@ -18,6 +18,11 @@ router.post("/biologo", async (req, res) => {res.json(await (BiologoController.c
 router.put("/biologo/:id", async (req, res) => {res.json(await (BiologoController.update(req.params.id, req.body)));});
 router.delete("/biologo/:id", async (req, res) => {res.json(await (BiologoController.delete(req.params.id)));});
 
+router.get("/especies", async (req, res) => { res.json(await(EspecieController.getList())); });
+router.get("/especies/:id", async (req, res) => {res.json(await (EspecieController.getById(req.params.id)));});
+router.post("/especies", async (req, res) => {res.json(await (EspecieController.create(req.body)));});
+router.put("/especies/:id", async (req, res) => {res.json(await (EspecieController.update(req.params.id, req.body)));});
+router.delete("/especies/:id", async (req, res) => {res.json(await (EspecieController.delete(req.params.id)));});
 
 app.use(bodyParser.json());
 app.use('/.netlify/functions/api', router);  // path must route to lambda
