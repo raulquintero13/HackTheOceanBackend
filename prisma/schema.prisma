@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
+  url      = "postgresql://postgres:hMJrL.ECfFUa856@db.nanhsrgockstbdmtturo.supabase.co:5432/postgres"
 }
 
 model Biologo {
