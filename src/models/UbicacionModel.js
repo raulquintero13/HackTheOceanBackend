@@ -24,16 +24,18 @@ class UbicacionModel{
     }
 
     static async create(ubicacion){
+        console.log(ubicacion)
         try{
-            return await prisma.Ubicaciones.create({ data: ubicacion });
+            return await prisma.ubicaciones.create({ data: ubicacion });
         } catch( err ) {
             return err;
         }
     }
 
     static async update(ubicacion){
+        console.log(ubicacion)
         try{
-            return await prisma.Ubicaciones.update({
+            return await prisma.ubicaciones.update({
                 where: { id: ubicacion.id },
                 data: ubicacion,
             });

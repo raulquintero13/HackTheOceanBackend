@@ -24,13 +24,13 @@ class UbicacionController{
             especieId: data.especieId,
             biologoId: data.biologoId,
         };
+        console.log(data)
         return UbicacionModel.create(ubicacion).then(
             result => {
                 return FormatService.toApiResponse(result);
             }
         );
     }
-    
 
 
     static update(id,data){
@@ -41,6 +41,8 @@ class UbicacionController{
             biologoId: data.biologoId,
             especieId: data.especieId,
         };
+        console.log(id)
+        console.log(data)
         return UbicacionModel.update(ubicacion).then(
             result => {
                 return FormatService.toApiResponse(result);
