@@ -12,6 +12,7 @@ app.use(cors(corsOptions));
 
 const EspecieController = require("./controllers/EspecieController");
 const BiologoController = require("./controllers/BiologoController");
+const UbicacionController = require("./controllers/UbicacionController");
 
 app.get("/", (req, res) => {
     res.json({message: "alive"});
@@ -29,6 +30,12 @@ app.get("/especies/:id", async (req, res) => {res.json(await (EspecieController.
 app.post("/especies", async (req, res) => {res.json(await (EspecieController.create(req.body)));});
 app.put("/especies/:id", async (req, res) => {res.json(await (EspecieController.update(req.params.id, req.body)));});
 app.delete("/especies/:id", async (req, res) => {res.json(await (EspecieController.delete(req.params.id)));});
+
+app.get("/ubicaciones", async (req, res) => { res.json(await(UbicacionController.getList())); });
+app.get("/ubicaciones/:id", async (req, res) => {res.json(await (UbicacionController.getById(req.params.id)));});
+app.post("/ubicaciones", async (req, res) => {res.json(await (UbicacionController.create(req.body)));});
+app.put("/ubicaciones/:id", async (req, res) => {res.json(await (UbicacionController.update(req.params.id, req.body)));});
+app.delete("/ubicaciones/:id", async (req, res) => {res.json(await (UbicacionController.delete(req.params.id)));});
 
 var server = app.listen(port, () => {console.log(`Listening to requests on port ${port}`);});
 var handler = function() {
