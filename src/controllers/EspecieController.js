@@ -1,5 +1,5 @@
 const EspecieModel = require("../models/EspecieModel");
-const FormatService = require("../services/FormatService")
+const FormatService = require("../services/FormatService");
 
 class EspecieController{
 
@@ -7,14 +7,14 @@ class EspecieController{
         return EspecieModel.getAll().then(
             result => {
                 return FormatService.toApiResponse(result);
-            })
+            });
     }
 
     static getById(id){
         return EspecieModel.getById(id).then(
             result => {
-                return FormatService.toApiResponse(result)
-            })
+                return FormatService.toApiResponse(result);
+            });
     }
 
     static create(data){
@@ -28,7 +28,7 @@ class EspecieController{
             result => {
                 return FormatService.toApiResponse(result);
             }
-        )
+        );
     }
 
     static update(id,data){
@@ -43,7 +43,7 @@ class EspecieController{
             result => {
                 return FormatService.toApiResponse(result);
             }
-        )
+        );
         
     }
 
@@ -52,7 +52,7 @@ class EspecieController{
             result => {
                 return FormatService.toApiResponse(result);
             }
-        )
+        );
     }
 
 }

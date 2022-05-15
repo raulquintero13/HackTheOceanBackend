@@ -7,9 +7,9 @@ class EspecieModel{
 
     static async getAll(){
         try {
-            return await prisma.Especie.findMany({ orderBy: [{ id: 'asc',}] });
+            return await prisma.Especie.findMany({ orderBy: [{ id: "asc",}] });
         } catch(err){
-            return err
+            return err;
         }
     }
 
@@ -17,9 +17,9 @@ class EspecieModel{
         try {
             return await prisma.Especie.findUnique({
                 where: { id: parseInt(id) }
-            })
+            });
         } catch(err){
-            return err
+            return err;
         }
     }
 
@@ -27,7 +27,7 @@ class EspecieModel{
         try{
             return await prisma.Especie.create({ data: especie });
         } catch( err ) {
-            return err
+            return err;
         }
     }
 
