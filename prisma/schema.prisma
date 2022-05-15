@@ -1,13 +1,10 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://postgres:hMJrL.ECfFUa856@db.nanhsrgockstbdmtturo.supabase.co:5432/postgres"
+  url      = env("DATABASE_URL")
 }
 
 model Biologo {
@@ -27,10 +24,10 @@ model Especie {
   especie          String        @db.VarChar(128)
   nombreCientifico String        @db.VarChar(128)
   familia          String        @db.VarChar(128)
-  biologo          Biologo       @relation(fields: [biologoId], references: [id])
   biologoId        Int
   dateCreated      DateTime      @default(now())
   lastUpdated      DateTime      @updatedAt
+  biologo          Biologo       @relation(fields: [biologoId], references: [id])
   Ubicaciones      Ubicaciones[]
 }
 
@@ -38,10 +35,10 @@ model Ubicaciones {
   id          Int      @id @default(autoincrement())
   coordenadas Float    @default(0.000)
   ph          Float    @default(0.000)
-  especie     Especie  @relation(fields: [especieId], references: [id])
   especieId   Int
-  biologo     Biologo  @relation(fields: [biologoId], references: [id])
   biologoId   Int
   dateCreated DateTime @default(now())
   lastUpdated DateTime @updatedAt
+  biologo     Biologo  @relation(fields: [biologoId], references: [id])
+  especie     Especie  @relation(fields: [especieId], references: [id])
 }
