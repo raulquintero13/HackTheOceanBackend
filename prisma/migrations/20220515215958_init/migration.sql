@@ -2,7 +2,7 @@
 CREATE TABLE "Biologo" (
     "id" SERIAL NOT NULL,
     "nombre" VARCHAR(128) NOT NULL,
-    "organizacion" VARCHAR(128) NOT NULL,
+    "organizacion" VARCHAR(255) NOT NULL,
     "especialidad" VARCHAR(128) NOT NULL,
     "pais" VARCHAR(128) NOT NULL,
     "dateCreated" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -14,9 +14,9 @@ CREATE TABLE "Biologo" (
 -- CreateTable
 CREATE TABLE "Especie" (
     "id" SERIAL NOT NULL,
-    "especie" VARCHAR(128) NOT NULL,
-    "nombreCientifico" VARCHAR(128) NOT NULL,
-    "familia" VARCHAR(128) NOT NULL,
+    "especie" VARCHAR(255) NOT NULL,
+    "nombreCientifico" VARCHAR(255) NOT NULL,
+    "familia" VARCHAR(255) NOT NULL,
     "biologoId" INTEGER NOT NULL,
     "dateCreated" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "lastUpdated" TIMESTAMP(3) NOT NULL,
@@ -28,7 +28,7 @@ CREATE TABLE "Especie" (
 CREATE TABLE "Ubicaciones" (
     "id" SERIAL NOT NULL,
     "coordenadas" VARCHAR(128) NOT NULL,
-    "ph" DOUBLE PRECISION NOT NULL DEFAULT 0.000,
+    "ph" VARCHAR(128) NOT NULL,
     "especieId" INTEGER NOT NULL,
     "biologoId" INTEGER NOT NULL,
     "dateCreated" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
