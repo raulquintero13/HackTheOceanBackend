@@ -13,6 +13,7 @@ app.use(cors(corsOptions));
 const EspecieController = require("./controllers/EspecieController");
 const BiologoController = require("./controllers/BiologoController");
 const UbicacionController = require("./controllers/UbicacionController");
+const UsuarioController = require("./controllers/UsuarioController");
 
 app.get("/", (req, res) => {
     res.json({message: "alive"});
@@ -31,11 +32,9 @@ app.post("/especies", async (req, res) => {res.json(await (EspecieController.cre
 app.put("/especies/:id", async (req, res) => {res.json(await (EspecieController.update(req.params.id, req.body)));});
 app.delete("/especies/:id", async (req, res) => {res.json(await (EspecieController.delete(req.params.id)));});
 
-app.get("/ubicaciones", async (req, res) => { res.json(await(UbicacionController.getList())); });
-app.get("/ubicaciones/:id", async (req, res) => {res.json(await (UbicacionController.getById(req.params.id)));});
-app.post("/ubicaciones", async (req, res) => {res.json(await (UbicacionController.create(req.body)));});
-app.put("/ubicaciones/:id", async (req, res) => {res.json(await (UbicacionController.update(req.params.id, req.body)));});
-app.delete("/ubicaciones/:id", async (req, res) => {res.json(await (UbicacionController.delete(req.params.id)));});
+
+app.get("/usuarios/:id", async (req, res) => {res.json(await (UsuarioController.getById(req.params.id)));});
+app.post("/usuarios", async (req, res) => {res.json(await (UsuarioController.create(req.body)));});
 
 var server = app.listen(port, () => {console.log(`Listening to requests on port ${port}`);});
 var handler = function() {
