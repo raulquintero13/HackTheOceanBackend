@@ -38,8 +38,8 @@ class UbicacionController{
             id: parseInt(id),
             coordenadas: data.coordenadas,
             ph: data.ph,
-            especieId: data.especieid,
-            biologoId: data.biologoid,
+            biologoId: data.biologoId,
+            especieId: data.especieId,
         };
         return UbicacionModel.update(ubicacion).then(
             result => {
