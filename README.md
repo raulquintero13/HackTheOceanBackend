@@ -50,7 +50,7 @@ endpoints for Biologos
 method|url|descripcion
 |---|---|---|
 get | [/biologo](https://inspiring-horse-d14449.netlify.app/.netlify/functions/api/biologo) | Obtener lista de Borar biologos
-get | [/biologo/:id]((https://inspiring-horse-d14449.netlify.app/.netlify/functions/api/biologo/6) | Obtener info de un Borar biologo por id
+get | [/biologo/:id](https://inspiring-horse-d14449.netlify.app/.netlify/functions/api/biologo/6) | Obtener info de un Borar biologo por id
 post | /biologo | Agregar Nuevo
 put | put /biologo/:id | Actualizar 
 delete | /biologo/:id | Borar
